@@ -46,5 +46,19 @@ public class ChercherTest {
 
     }
 
+    @Test
+    public void disabledButtonTest(){
+        WebElement button = driver.findElement(By.id("disable"));
+        System.out.println("button.isEnabled() = " + button.isEnabled());
+
+        WebElement buttonInitiator = driver.findElement(By.id("enable-button"));
+        buttonInitiator.click();
+
+        wait = new WebDriverWait(driver,12);
+        wait.until(ExpectedConditions.elementToBeClickable(button));
+        button.click();
+
+    }
+
 
 }
